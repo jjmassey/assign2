@@ -30,10 +30,10 @@ public class Run {
 		fileLogger.info("test2");
 		fileLogger.info("test3");
 		
-		System.out.print(object.getCurrentLogs());
+		System.out.print("Current Logs: " + object.getCurrentLogs());
 		
 		// Test to see if discardedLogs works
-		System.out.print(object.getDiscardedLogCount());
+		System.out.print("\n\nNumber of Discarded Logs: " + object.getDiscardedLogCount());
 		
 		// Test to try to add to immutable list
 //		immutablelist.add(LoggingEvent);
