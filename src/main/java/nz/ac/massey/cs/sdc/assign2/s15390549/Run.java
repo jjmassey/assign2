@@ -43,11 +43,7 @@ public class Run {
 		System.out.print("\n\nNumber of Discarded Logs: " + object.getDiscardedLogCount() + "\n");
 
 		// Test to try to add to immutable list
-<<<<<<< HEAD
-		// immutablelist.add(LoggingEvent);
-=======
 //		immutablelist.add(LoggingEvent);
->>>>>>> velocity
 
 		// Test to add to mutable list
 		events.add(LoggingEvent);
