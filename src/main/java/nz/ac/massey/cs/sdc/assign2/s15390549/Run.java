@@ -42,12 +42,8 @@ public class Run {
 		// Test to see if discardedLogs works
 		System.out.print("\n\nNumber of Discarded Logs: " + object.getDiscardedLogCount() + "\n");
 
-		if (immutablelist.add(LoggingEvent)) {
-
-		}
-
 		// Test to try to add to immutable list
-		immutablelist.add(LoggingEvent);
+//		immutablelist.add(LoggingEvent);
 
 		// Test to add to mutable list
 		events.add(LoggingEvent);
