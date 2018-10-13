@@ -1,5 +1,7 @@
 package nz.ac.massey.cs.sdc.assign2.s15390549;
 
+// branch velocity test
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -41,7 +43,11 @@ public class Run {
 		System.out.print("\n\nNumber of Discarded Logs: " + object.getDiscardedLogCount() + "\n");
 
 		// Test to try to add to immutable list
+<<<<<<< HEAD
 		// immutablelist.add(LoggingEvent);
+=======
+//		immutablelist.add(LoggingEvent);
+>>>>>>> velocity
 
 		// Test to add to mutable list
 		events.add(LoggingEvent);
