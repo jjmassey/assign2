@@ -15,9 +15,11 @@ public class MemAppender extends AppenderSkeleton {
 	// Singleton Pattern
 	
 	private static final MemAppender instance = new MemAppender();
-	private static final MemAppender instance1 = null;
 	
     private MemAppender(){
+    	if (instance != null) {
+            throw new IllegalStateException("Already instantiated");
+        }
     	this.events = new ArrayList<>();
     }
     

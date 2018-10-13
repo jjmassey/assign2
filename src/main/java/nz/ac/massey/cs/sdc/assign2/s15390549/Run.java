@@ -12,7 +12,8 @@ import org.apache.log4j.spi.LoggingEvent;
 
 public class Run {
 	
-	private static final LoggingEvent LoggingEvent = null;
+	private static final LoggingEvent LoggingEvent = null ;
+	private static final LoggingEvent LoggingEvent1 = null ;
 	
 	public static Logger testLogger = Logger.getLogger("--> File");
 	
@@ -26,6 +27,7 @@ public class Run {
 		
 		// Test to see if logs are saved to FileLoggers
 		MemAppender object = MemAppender.getInstance();
+		
 		testLogger.addAppender(object);
 		
 		testLogger.info("test0");
@@ -36,13 +38,20 @@ public class Run {
 		System.out.print("Current Logs: " + object.getCurrentLogs());
 		
 		// Test to see if discardedLogs works
-		System.out.print("\n\nNumber of Discarded Logs: " + object.getDiscardedLogCount());
+		System.out.print("\n\nNumber of Discarded Logs: " + object.getDiscardedLogCount() + "\n");
+		
+		if (immutablelist.add(LoggingEvent)) {
+			
+		}
 		
 		// Test to try to add to immutable list
-//		immutablelist.add(LoggingEvent);
+		immutablelist.add(LoggingEvent);
 		
 		// Test to add to mutable list
-		events.add(LoggingEvent); 
+		events.add(LoggingEvent);
+		events.add(LoggingEvent1);
+		
+		System.out.println("Mutable list \"events\": " + events);
 		
 	}
 
