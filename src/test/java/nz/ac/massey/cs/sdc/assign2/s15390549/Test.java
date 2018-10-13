@@ -19,9 +19,9 @@ public class Test {
 	MemAppender object1 = MemAppender.getInstance();
 	
 	
-	// Test for Singleton Pattern
+	// Singleton Pattern Test - ensure only one instance can be created 
 	@org.junit.Test
-	public void test1() {
+	public void singletonTest() {
 		assertTrue(object == object1);
 	}
 	
@@ -43,11 +43,5 @@ public class Test {
 	public void tearDown() throws Exception {
 	}
 
-	@org.junit.Test
-	public void test() {
-		fail("Not yet implemented");
-	}
-
-	
 	// == same identity, or .equals
 }

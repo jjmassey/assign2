@@ -17,7 +17,7 @@ public class MemAppender extends AppenderSkeleton {
 	private static final MemAppender instance = new MemAppender();
 	private static final MemAppender instance1 = null;
 	
-    public MemAppender(){
+    private MemAppender(){
     	this.events = new ArrayList<>();
     }
     

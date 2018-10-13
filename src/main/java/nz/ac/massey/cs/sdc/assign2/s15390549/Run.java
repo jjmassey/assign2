@@ -4,18 +4,21 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.Logger;
 import org.apache.log4j.spi.LoggingEvent;
 
-import nz.ac.massey.cs.sdc.assign2.s15390549.MemAppender;
+//import nz.ac.massey.cs.sdc.assign2.s15390549.MemAppender;
 
 public class Run {
 	
 	private static final LoggingEvent LoggingEvent = null;
 	
-	public static Logger fileLogger = Logger.getLogger("--> File");
+	public static Logger testLogger = Logger.getLogger("--> File");
 	
 	public static void main(String[] args) {
+		
+		BasicConfigurator.configure();
 		
 		List<LoggingEvent> events = new ArrayList<LoggingEvent>();
 		List<LoggingEvent> immutablelist = Collections.unmodifiableList(events);
@@ -23,12 +26,12 @@ public class Run {
 		
 		// Test to see if logs are saved to FileLoggers
 		MemAppender object = MemAppender.getInstance();
-		fileLogger.addAppender(object);
+		testLogger.addAppender(object);
 		
-		fileLogger.info("transactions imported");
-		fileLogger.info("test");
-		fileLogger.info("test2");
-		fileLogger.info("test3");
+		testLogger.info("test0");
+		testLogger.info("test1");
+		testLogger.info("test2");
+		testLogger.info("test3\n");
 		
 		System.out.print("Current Logs: " + object.getCurrentLogs());
 		
