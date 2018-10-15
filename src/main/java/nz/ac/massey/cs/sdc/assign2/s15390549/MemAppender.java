@@ -22,8 +22,8 @@ public class MemAppender extends AppenderSkeleton {
         }
     	this.events = new ArrayList<>();
     }
-    
-    private MemAppender(List<LoggingEvent> eventsList){
+
+	public MemAppender(List<LoggingEvent> eventsList){
     	if (instance == null) {
             this.events = eventsList;
         }
