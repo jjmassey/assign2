@@ -37,6 +37,7 @@ public class Run {
 		testLogger.info("test0");
 		testLogger.info("test1");
 		testLogger.info("test2");
+		testLogger.info("test3");
 		testLogger.info("test3\n");
 
 		System.out.print("Current Logs: " + object1.getCurrentLogs());

@@ -41,7 +41,7 @@ public class MemAppender extends AppenderSkeleton {
 	
 	protected void append(LoggingEvent event) {
 		if (events.size() == maxSize) {
-			events.remove(events.size() - 1);
+			events.remove(events.get(0));
 			discardedLogCount += 1;
 		}
 		events.add(event);
