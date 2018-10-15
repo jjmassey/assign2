@@ -16,11 +16,18 @@ public class MemAppender extends AppenderSkeleton {
 	
 	private static final MemAppender instance = new MemAppender();
 	
-    private MemAppender(){
-    	if (instance != null) {
-            throw new IllegalStateException("Already instantiated");
+    public MemAppender(){
+    	if (instance == null) {
+    		this.events = new ArrayList<>();
         }
     	this.events = new ArrayList<>();
+    }
+    
+    private MemAppender(List<LoggingEvent> eventsList){
+    	if (instance == null) {
+            this.events = eventsList;
+        }
+    	this.events = eventsList;
     }
     
     //Get the only object available
