@@ -1,2 +1,4 @@
 INFO [main]  testLogger  Timestamp: 1539825259826 Test0
 INFO [main]  testLogger  Timestamp: 1539825260088 Test1
+Timestamp: 1539826458091 INFO [main]  testLogger  Test0
+Timestamp: 1539826458281 INFO [main]  testLogger  Test1
