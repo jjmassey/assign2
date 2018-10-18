@@ -28,34 +28,38 @@ public class Run {
 
 
 		// Test to see if logs are saved to FileLoggers
-//		MemAppender object = new MemAppender();
-		MemAppender object1 = new MemAppender(events);
+		MemAppender object = new MemAppender();			// WORKS
+		MemAppender object1 = new MemAppender(events);	// WORKS
+		
+		MemAppender obj = object.getInstance();
 		
 //		MemAppender object = MemAppender.getInstance();
 
-		testLogger.addAppender(object1);
+		testLogger.addAppender(obj);
 
+		System.out.print("(BEFORE) Current Logs: " + obj.getCurrentLogs() + "\n\n");
+		
 		testLogger.info("test0");
 		testLogger.info("test1");
 		testLogger.info("test2");
 		testLogger.info("test3");
 		testLogger.info("test3\n");
 
-		System.out.print("Current Logs: " + object1.getCurrentLogs());
+		System.out.print("(AFTER) Current Logs: " + obj.getCurrentLogs());
 
 		// Test to see if discardedLogs works
-		System.out.print("\n\nNumber of Discarded Logs: " + object1.getDiscardedLogCount() + "\n");
+		System.out.print("\n\nNumber of Discarded Logs: " + obj.getDiscardedLogCount() + "\n");
 
 		// Test to try to add to immutable list
 //		immutablelist.add(LoggingEvent);
 		
-		System.out.println("Mutable list \"events\": " + events);
+		System.out.println("Mutable list from MemAppender(events) \"events\": " + events);
 		
 		// Test to add to mutable list
 		events.add(LoggingEvent);
 		events.add(LoggingEvent1);
 
-		System.out.println("Mutable list \"events\": " + events);
+		System.out.println("Mutable list MemAppender(events) \"events\": " + events);
 
 	}
 
