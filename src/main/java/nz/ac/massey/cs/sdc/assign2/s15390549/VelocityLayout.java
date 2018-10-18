@@ -2,28 +2,31 @@ package nz.ac.massey.cs.sdc.assign2.s15390549;
 
 import java.io.StringWriter;
 
+import org.apache.log4j.Layout;
 import org.apache.log4j.Level;
 import org.apache.log4j.spi.LoggingEvent;
 import org.apache.velocity.VelocityContext;
 import org.apache.velocity.app.VelocityEngine;
 
-public class VelocityLayout extends org.apache.log4j.Layout{
+import com.sun.org.apache.xalan.internal.xsltc.compiler.Template;
+
+public class VelocityLayout extends Layout{
 	
-	VelocityEngine ve = new VelocityEngine();
-	VelocityContext context = new VelocityContext();
-	StringWriter sw = new StringWriter();
+	String pattern;
 	
-	// constructor for pattern and if it doesn't have a pattern give it the pattern.
-//	String pattern = "$p [$t] $c $d $m$n";
-	
-//	String velocityPattern = 
+	public VelocityLayout() {
+		this.pattern = "${p} [${t}] ${c} Timestamp: ${d} ${m}${n}";
+	}
 	
 	public VelocityLayout(String pattern) {
-		if (pattern == null) {
-			pattern = "$p [$t] $c $d $m$n";
+		if (pattern.equals(" ")) {
+			this.pattern = "${p} [${t}] ${c} Timestamp: ${d} ${m}${n}";
 		}
-		pattern = "$p [$t] $c $d $m$n";
+		else {
+			this.pattern = pattern;
+		}
 	}
+	
 
 	public void activateOptions() {
 		// TODO Auto-generated method stub
@@ -31,14 +34,27 @@ public class VelocityLayout extends org.apache.log4j.Layout{
 
 	@Override
 	public String format(LoggingEvent event) {
-		String c = event.getLoggerName();
-		String d = event.toString();
-		Object m = event.getMessage();
-		Level p = event.getLevel();
-		String t = event.getThreadName();
+		
+		VelocityEngine ve = new VelocityEngine();
+		ve.init();
+		VelocityContext context = new VelocityContext();
+		StringWriter sw = new StringWriter();
+		
+		String c = event.getLoggerName();	// e.g File (Appender) "--> testLogger -->"
+		long d = event.getTimeStamp();		// e.g "1539824883398"
+		Object m = event.getMessage();		// e.g Test0 - testLogger.info("Test0");
+		Level p = event.getLevel();			// e.g INFO, DEBUG, WARN
+		String t = event.getThreadName();	// e.g [main]
 		String n = "\n" ;
-		String formatted = (p + "[" + t + "]" + c + d + m + n);
-		return formatted;
+		context.put("c", c);
+		context.put("d", d);
+		context.put("m", m);
+		context.put("p", p);
+		context.put("t", t);
+		context.put("n", n);
+		ve.evaluate(context, sw, "", pattern);
+		
+		return sw.toString();	// return formatted or return event or context or pattern?
 	}
 
 	@Override
