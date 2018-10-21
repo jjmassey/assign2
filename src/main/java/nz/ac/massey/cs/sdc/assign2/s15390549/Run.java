@@ -33,6 +33,9 @@ public class Run {
 		
 		MemAppender obj = object.getInstance();
 		
+		List<org.apache.log4j.spi.LoggingEvent> immuteTest = obj.getCurrentLogs();
+	
+		
 //		MemAppender object = MemAppender.getInstance();
 
 		testLogger.addAppender(obj);

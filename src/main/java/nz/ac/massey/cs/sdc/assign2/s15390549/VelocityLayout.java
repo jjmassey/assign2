@@ -42,7 +42,7 @@ public class VelocityLayout extends Layout{
 		
 		String c = event.getLoggerName();	// e.g File (Appender) "--> testLogger -->"
 		long d = event.getTimeStamp();		// e.g "1539824883398"
-		Object m = event.getMessage();		// e.g Test0 - testLogger.info("Test0");
+		Object m = event.getMessage();		// e.g Test0 - testLogger.info("Test0")
 		Level p = event.getLevel();			// e.g INFO, DEBUG, WARN
 		String t = event.getThreadName();	// e.g [main]
 		String n = "\n" ;
