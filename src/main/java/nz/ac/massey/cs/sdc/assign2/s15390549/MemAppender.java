@@ -2,6 +2,7 @@ package nz.ac.massey.cs.sdc.assign2.s15390549;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.LinkedList;
 import java.util.List;
 
 import org.apache.log4j.AppenderSkeleton;
@@ -20,9 +21,16 @@ public class MemAppender extends AppenderSkeleton {
     	this.events = new ArrayList<>();
     }
 
-	public MemAppender(List<LoggingEvent> eventsList){
+	public MemAppender(ArrayList<LoggingEvent> eventsList){
     	if (instance == null) {
             this.events = new ArrayList<>();
+        }
+    	this.events = eventsList;
+    }
+	
+	public MemAppender(LinkedList<LoggingEvent> eventsList){
+    	if (instance == null) {
+            this.events = new LinkedList<>();
         }
     	this.events = eventsList;
     }

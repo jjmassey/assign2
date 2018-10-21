@@ -31,7 +31,7 @@ public class Test {
 	List<LoggingEvent> immutableList = object.getCurrentLogs();
 	
 	// Create a mutable list
-	List<LoggingEvent> events = new ArrayList<LoggingEvent>();
+	ArrayList<LoggingEvent> events = new ArrayList<LoggingEvent>();
 	
 	// Create an instance of a logging event
 	private static final LoggingEvent LoggingEvent = null;

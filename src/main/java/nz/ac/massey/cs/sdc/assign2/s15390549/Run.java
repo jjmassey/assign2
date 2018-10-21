@@ -4,6 +4,7 @@ package nz.ac.massey.cs.sdc.assign2.s15390549;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.LinkedList;
 import java.util.List;
 
 import org.apache.log4j.BasicConfigurator;
@@ -23,24 +24,19 @@ public class Run {
 
 		BasicConfigurator.configure();
 
-		List<LoggingEvent> events = new ArrayList<LoggingEvent>();
-		List<LoggingEvent> immutablelist = Collections.unmodifiableList(events);
-
+		ArrayList<LoggingEvent> events = new ArrayList<LoggingEvent>();
+		LinkedList<LoggingEvent> events1 = new LinkedList<LoggingEvent>();
 
 		// Test to see if logs are saved to FileLoggers
-		MemAppender object = new MemAppender();			// WORKS
-		MemAppender object1 = new MemAppender(events);	// WORKS
-		
-		MemAppender obj = object.getInstance();
-		
-		List<LoggingEvent> immuteTest = obj.getCurrentLogs();
+		MemAppender obj0 = new MemAppender();			// WORKS
+		MemAppender obj1 = new MemAppender(events1);	// WORKS
 	
+		System.out.print("(BEFORE) Current Logs: " + obj1.getCurrentLogs() + "\n\n");
 		
-//		MemAppender object = MemAppender.getInstance();
-
-		testLogger.addAppender(obj);
-
-		System.out.print("(BEFORE) Current Logs: " + obj.getCurrentLogs() + "\n\n");
+		List<LoggingEvent> immuteTest = obj0.getCurrentLogs();
+		
+		// Test for Immutable List returned from "getCurrentLogs"
+//		immuteTest.add(LoggingEvent);
 		
 		testLogger.info("test0");
 		testLogger.info("test1");
@@ -48,21 +44,21 @@ public class Run {
 		testLogger.info("test3");
 		testLogger.info("test3\n");
 
-		System.out.print("(AFTER) Current Logs: " + obj.getCurrentLogs());
+		System.out.print("(AFTER) Current Logs: " + obj1.getCurrentLogs());
 
 		// Test to see if discardedLogs works
-		System.out.print("\n\nNumber of Discarded Logs: " + obj.getDiscardedLogCount() + "\n");
+		System.out.print("\n\nNumber of Discarded Logs: " + obj1.getDiscardedLogCount() + "\n\n");
 
 		// Test to try to add to immutable list
-//		immutablelist.add(LoggingEvent);
+//		immuteTest.add(LoggingEvent);
 		
-		System.out.println("Mutable list from MemAppender(events) \"events\": " + events);
+		System.out.println("(BEFORE) Mutable list from MemAppender(events) \"events\": " + events1);
 		
 		// Test to add to mutable list
-		events.add(LoggingEvent);
-		events.add(LoggingEvent1);
+		events1.add(LoggingEvent);
+		events1.add(LoggingEvent1);
 
-		System.out.println("Mutable list MemAppender(events) \"events\": " + events);
+		System.out.println("(AFTER) Mutable list MemAppender(events) \"events\": " + events1);
 
 	}
 
