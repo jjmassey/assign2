@@ -26,7 +26,7 @@ public class Run {
 
 		ArrayList<LoggingEvent> events = new ArrayList<LoggingEvent>();
 		LinkedList<LoggingEvent> events1 = new LinkedList<LoggingEvent>();
-
+		
 		// Test to see if logs are saved to FileLoggers
 		MemAppender obj0 = new MemAppender();			// WORKS
 		MemAppender obj1 = new MemAppender(events1);	// WORKS
@@ -37,6 +37,8 @@ public class Run {
 		
 		// Test for Immutable List returned from "getCurrentLogs"
 //		immuteTest.add(LoggingEvent);
+		
+//		testLogger.addAppender(obj1);
 		
 		testLogger.info("test0");
 		testLogger.info("test1");

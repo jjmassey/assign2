@@ -3,3 +3,5 @@ Timestamp: 1540080792101 INFO [main]  testLogger  Test0
 Timestamp: 1540080792261 INFO [main]  testLogger  Test1
 Timestamp: 1540080902491 INFO [main]  testLogger  Test0
 Timestamp: 1540080902694 INFO [main]  testLogger  Test1
+Timestamp: 1540086288425 INFO [main]  testLogger  Test0
+Timestamp: 1540086288674 INFO [main]  testLogger  Test1

@@ -21,10 +21,14 @@ public class VelocityRun {
 		// Parameter for testing VelocityLayout(pattern)
 		String pattern = "Timestamp: ${d} ${p} [${t}] ${c} ${m}${n}";
 		
-		MemAppender object = MemAppender.getInstance();
+//		MemAppender object = MemAppender.getInstance();
 		testLogger.addAppender(new FileAppender(new VelocityLayout(pattern), "logs.txt"));
 		testLogger.info("Test0");
 		testLogger.info("Test1");
+		
+		
+		
+		
 		
 		
 		testLogger.setLevel(Level.ALL);

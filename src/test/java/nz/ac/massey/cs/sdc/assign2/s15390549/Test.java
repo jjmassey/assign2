@@ -3,11 +3,14 @@ package nz.ac.massey.cs.sdc.assign2.s15390549;
 import static org.junit.Assert.*;
 import static org.junit.Assume.*;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
 import org.apache.log4j.BasicConfigurator;
+import org.apache.log4j.ConsoleAppender;
+import org.apache.log4j.FileAppender;
 import org.apache.log4j.Logger;
 import org.apache.log4j.spi.LoggingEvent;
 import org.junit.After;
@@ -42,6 +45,28 @@ public class Test {
 	public static Logger testLogger = Logger.getLogger("--> File");
 	
 	
+	// FileAppender with MemAppender Combination / getCurrentLogs Test
+	@org.junit.Test
+	public void comboTest() throws IOException {
+		MemAppender object = MemAppender.getInstance();
+		testLogger.addAppender(object);
+		List<LoggingEvent> immutableList = object.getCurrentLogs();
+		assumeTrue(immutableList.size() == 0);
+		testLogger.info("test0");
+		assertTrue(immutableList.size()==1);	
+	}
+	
+	// FileAppender with VelocityLayout Combination 
+	@org.junit.Test
+	public void comboTest1() throws IOException {
+
+	}
+	
+	// ConsoleAppender with VelocityLayout Combination 
+	@org.junit.Test
+	public void comboTest2() throws IOException {
+
+	}
 	
 	// Singleton Pattern Test - ensure only one instance can be created 
 	@org.junit.Test
