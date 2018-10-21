@@ -1,8 +1,5 @@
-INFO [main]  testLogger  Timestamp: 1539825259826 Test0
-INFO [main]  testLogger  Timestamp: 1539825260088 Test1
-Timestamp: 1539826458091 INFO [main]  testLogger  Test0
-Timestamp: 1539826458281 INFO [main]  testLogger  Test1
-INFO [main]  testLogger  Timestamp: 1539828714960 Test0
-INFO [main]  testLogger  Timestamp: 1539828715148 Test1
-INFO [main]  testLogger  Timestamp: 1539829504675 Test0
-INFO [main]  testLogger  Timestamp: 1539829504826 Test1
+
+Timestamp: 1540080792101 INFO [main]  testLogger  Test0
+Timestamp: 1540080792261 INFO [main]  testLogger  Test1
+Timestamp: 1540080902491 INFO [main]  testLogger  Test0
+Timestamp: 1540080902694 INFO [main]  testLogger  Test1

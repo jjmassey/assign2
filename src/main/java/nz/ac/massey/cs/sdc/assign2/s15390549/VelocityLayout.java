@@ -8,7 +8,6 @@ import org.apache.log4j.spi.LoggingEvent;
 import org.apache.velocity.VelocityContext;
 import org.apache.velocity.app.VelocityEngine;
 
-import com.sun.org.apache.xalan.internal.xsltc.compiler.Template;
 
 public class VelocityLayout extends Layout{
 	

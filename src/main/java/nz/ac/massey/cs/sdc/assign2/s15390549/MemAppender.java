@@ -12,8 +12,8 @@ public class MemAppender extends AppenderSkeleton {
 	private List<LoggingEvent> events;
 	private int maxSize = 2;
 	private int discardedLogCount = 0;
-	// Singleton Pattern
 	
+	// Singleton Pattern
 	private static final MemAppender instance = new MemAppender();
 	
     public MemAppender(){
@@ -26,6 +26,7 @@ public class MemAppender extends AppenderSkeleton {
         }
     	this.events = eventsList;
     }
+	
     
     //Get the only object available
     public static MemAppender getInstance(){
