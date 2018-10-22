@@ -1,13 +1,11 @@
 package nz.ac.massey.cs.sdc.assign2.s15390549;
 
-import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assume.assumeTrue;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -20,6 +18,8 @@ import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
+
+import nz.ac.massey.cs.sdc.assign2.s15390549.*;
 
 
 public class Test {
@@ -44,6 +44,9 @@ public class Test {
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 		BasicConfigurator.configure();
+		
+		// IMPORTANT! RESET singleton to null
+		MemAppender.resetSingleton();
 	}
 	
 	@Before
@@ -64,6 +67,7 @@ public class Test {
 		testLogger = Logger.getLogger("---> Test logger");
 		testLogger1 = Logger.getLogger("---> File logger");
 		testLogger2 = Logger.getLogger("---> Console logger");
+		
 		
 	}
 	
@@ -210,6 +214,7 @@ public class Test {
 		assertNull(testLogger1);
 		assertNull(testLogger2);
 		assertNull(immutableList);
+		
 	}
 	
 	@AfterClass

@@ -47,6 +47,9 @@ public class StressTest {
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 		BasicConfigurator.configure();
+		
+		// IMPORTANT! RESET singleton to null
+		MemAppender.resetSingleton();
 	}
 	
 	@Before

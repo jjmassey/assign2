@@ -18,26 +18,32 @@ public class MemAppender extends AppenderSkeleton {
 	private int discardedLogCount = 0;
 	
 	// Singleton Pattern
-	private static final MemAppender instance = new MemAppender();
+	private static MemAppender instance = new MemAppender();
 	
     public MemAppender(){
+    	if (instance != null) {
+            throw new IllegalStateException("Already instantiated");
+        }
     	this.events = new ArrayList<>();
     }
 
 	public MemAppender(ArrayList<LoggingEvent> eventsList){
-    	if (instance == null) {
-            this.events = new ArrayList<>();
+		if (instance != null) {
+            throw new IllegalStateException("Already instantiated");
         }
     	this.events = eventsList;
     }
 	
 	public MemAppender(LinkedList<LoggingEvent> eventsList){
-    	if (instance == null) {
-            this.events = new LinkedList<>();
+		if (instance != null) {
+            throw new IllegalStateException("Already instantiated");
         }
     	this.events = eventsList;
     }
 	
+	public static void resetSingleton() {
+		   instance = null;
+		}
     
     //Get the only object available
     public static MemAppender getInstance(){
