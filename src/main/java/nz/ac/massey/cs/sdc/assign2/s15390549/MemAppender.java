@@ -11,7 +11,10 @@ import org.apache.log4j.spi.LoggingEvent;
 public class MemAppender extends AppenderSkeleton {
 	
 	private List<LoggingEvent> events;
+	
+	// Maxsize variable for testing
 	private int maxSize = 2;
+	
 	private int discardedLogCount = 0;
 	
 	// Singleton Pattern
