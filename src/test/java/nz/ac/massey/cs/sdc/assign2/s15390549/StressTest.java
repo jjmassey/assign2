@@ -60,7 +60,6 @@ public class StressTest {
 		events1 = new ArrayList<LoggingEvent>();
 		events2 = new LinkedList<LoggingEvent>();
 		start = new Date();
-		end = new Date();
 		
 		// Appenders
 		object1 = new MemAppender(events1);			// Array list
@@ -85,9 +84,10 @@ public class StressTest {
 	public void arrayList() throws IOException {
 		arrayListLogger.addAppender(object1);
 		System.out.println(start.toString());
-		for (int i=0; i<100; i++) {
+		for (int i=0; i<1260000; i++) {
 			arrayListLogger.info("Array Test: " + i);
 		}
+		end = new Date();
 		System.out.println(end.toString());
 	}
 	
@@ -96,9 +96,10 @@ public class StressTest {
 	public void linkedList() throws IOException {
 		linkedListLogger.addAppender(object1);
 		System.out.println(start.toString());
-		for (int i=0; i<100; i++) {
+		for (int i=0; i<1260000; i++) {
 			linkedListLogger.info("Linked Test: " + i);
 		}
+		end = new Date();
 		System.out.println(end.toString());
 	}
 	
@@ -107,9 +108,11 @@ public class StressTest {
 	public void consoleVelocityPatternLayout() throws IOException {
 		cVelLogger.addAppender(cVelAppender);
 		System.out.println(start.toString());
-		for (int i=0; i<100; i++) {
+		for (int i=0; i<2000; i++) {
 			cVelLogger.info("Console + Velocity Test: " + i);
 		}
+		end = new Date();
+		System.out.println(end.toString());
 	}
 	
 	// Console Appender with Pattern Layout
@@ -117,9 +120,11 @@ public class StressTest {
 	public void consolePatternLayout() throws IOException {
 		cPatLogger.addAppender(cPatAppender);
 		System.out.println(start.toString());
-		for (int i=0; i<100; i++) {
+		for (int i=0; i<1000000; i++) {
 			cPatLogger.info("Console + Pattern Test: " + i);
 		}
+		end = new Date();
+		System.out.println(end.toString());
 	}
 	
 	// Console Appender with Velocity Layout
@@ -127,9 +132,11 @@ public class StressTest {
 	public void fileVelocityPatternLayout() throws IOException {
 		fVelLogger.addAppender(fVelAppender);
 		System.out.println(start.toString());
-		for (int i=0; i<100; i++) {
+		for (int i=0; i<2000; i++) {
 			fVelLogger.info("File + Velocity Test: " + i);
 		}
+		end = new Date();
+		System.out.println(end.toString());
 	}
 	
 	// Console Appender with Pattern Layout
@@ -137,9 +144,11 @@ public class StressTest {
 	public void filePatternLayout() throws IOException {
 		fPatLogger.addAppender(fPatAppender);
 		System.out.println(start.toString());
-		for (int i=0; i<100; i++) {
+		for (int i=0; i<1000000; i++) {
 			fPatLogger.info("File + Pattern Test: " + i);
 		}
+		end = new Date();
+		System.out.println(end.toString());
 	}
 	
 	@After
